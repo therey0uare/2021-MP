@@ -5,7 +5,7 @@ import sys
 import random
 import os
 
-from datetime import datetime as dt
+
 
 
 
@@ -74,7 +74,7 @@ def RunClient(IP, Port):
     dc.startDC(c.getSocket(), lambda: c.getSctIsnRun(), IP, Port)
 
     while True:
-        inp = input('TF Client: ')
+        inp = input('SW Client: ')
 
         if inp == '/quit':
             dc.sender(c.getSocket(), inp)
@@ -128,7 +128,7 @@ class ClientsBase:
                 pass
 
     def sender(self, sock, sctrn, dubl):
-        log = open('TFlog.txt', 'a')
+        log = open('SWlog.txt', 'a')
         while True:
             if sctrn():
                 break
@@ -199,7 +199,7 @@ def RunServer():
     cb.startCBase(s.getSocket(), lambda: s.getSctIsnRun())
 
     while True:
-        inp = input('TFS Console: ')
+        inp = input('SW Console: ')
 
         if inp == '/restart':
             s.stop()
